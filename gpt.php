@@ -41,9 +41,9 @@ if ($act == 'question') {
     }
     //array_push($history, $input => $text);
     $history = $history + [$input => $text];
-    foreach(json_decode($_POST['history'], true) as $i => $t) {
-        $history = $history + [$i => $t];
-    };
+        foreach(json_decode($_POST['history'], true) as $i => $t) {
+            $history = $history + [$i => $t];
+        };
     $value = json_encode($history);
     echo <<<END
 <form action="gpt.php" method="POST">
@@ -86,8 +86,13 @@ END;
             'content' => $content,
         );
 
-        $data = gpt35Curl($history);
+        $data = gpt35Curlf($history);
         return $data;
+    }
+
+    function gpt35Curlf(array $message, $json=true) {
+       $string = '{"id":"chatcmpl-6yhYUJhyZSd6GgwtWVKA6NBVN4Erd","object":"chat.completion","created":1679925126,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":13,"completion_tokens":26,"total_tokens":39},"choices":[{"message":{"role":"assistant","content":"As an AI language model, I do not have feelings or emotions but I am functioning well. How can I assist you today?"},"finish_reason":"stop","index":0}]}';
+       return json_decode($string, true);
     }
 
 
