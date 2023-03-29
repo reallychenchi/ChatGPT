@@ -4,10 +4,25 @@
     <title>欢迎使用狗屁通</title>
 </head>
 <body>
-
-<form action="gpt.php" method="post">
-    问题: <input type="text" name="question">
-    <input type="submit" value="提交">
+<style>
+.form  {
+display: flex;
+}
+.input {
+font-size:40px;
+flex-grow: 1;
+}
+prompt{
+font-size:40px;
+}
+.submit{
+font-size:40px;
+}
+</style>
+<form action="gpt.php" method="post" class="form">
+    <prompt>问题: </prompt>
+    <input type="text" name="question" class="input">
+    <input type="submit" value="提交" class="submit">
 </form>
 
 </body>
