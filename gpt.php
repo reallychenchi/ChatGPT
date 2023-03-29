@@ -52,26 +52,43 @@ if ($act == 'question') {
     <title>欢迎使用狗屁通</title>
 </head>
 <body>
-<style>
+<style type="text/css">
+		body {
+			font-size: 20px;
+			margin: 0;
+			padding: 0;
+			background-color: #f2f2f2;
+		}
 .form  {
-display: flex;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
 }
 .input {
-font-size:40px;
-flex-grow: 1;
-}
-prompt{
-font-size:40px;
+			flex-grow: 1;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+			background-color: #fff;
+			outline: none;
 }
 .submit{
-font-size:40px;
+			font-size: 20px;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+			background-color: #4CAF50;
+			color: #fff;
+			cursor: pointer;
+			outline: none;
 }
 </style>
 
-<form action="gpt.php" method="POST" class="form>
-<prompt>问题: </prompt>
-<input type="text" name="question" class="input">
-<input type="hidden" name="history" value='$value' >
+<form action="gpt.php" method="POST" class="form">
+<input type="text" name="question" class="input" placeholder="请输出你想对ChatGpt提问的内容">
+<input type="hidden" name="history" value='$value'>
 <input type="submit" value="提问" class="submit">
 </form>
 END;
