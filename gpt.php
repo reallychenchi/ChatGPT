@@ -46,12 +46,33 @@ if ($act == 'question') {
     };
     $value = json_encode($history);
     echo <<<END
-<form action="gpt.php" method="POST">
-<form>
-问题：
-<input type="text" name="question">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>欢迎使用狗屁通</title>
+</head>
+<body>
+<style>
+.form  {
+display: flex;
+}
+.input {
+font-size:40px;
+flex-grow: 1;
+}
+prompt{
+font-size:40px;
+}
+.submit{
+font-size:40px;
+}
+</style>
+
+<form action="gpt.php" method="POST" class="form>
+<prompt>问题: </prompt>
+<input type="text" name="question" class="input">
 <input type="hidden" name="history" value='$value' >
-<input type="submit" value="提问">
+<input type="submit" value="提问" class="submit">
 </form>
 END;
 foreach($history as $i =>$t) {
@@ -60,6 +81,10 @@ foreach($history as $i =>$t) {
   echo "答：".$t;
   echo "<br>";
 }
+echo <<<END
+</body>
+</html>
+END;
 } else {
     echo <<<END
 <form action="gpt.php" method="POST">
